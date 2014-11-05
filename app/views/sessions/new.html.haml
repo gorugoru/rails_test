@@ -1,2 +1,12 @@
-%h1 Sessions#new
-%p Find me in app/views/sessions/new.html.haml
+ログイン
+= form_for(@user, :class => 'uk-panel uk-panel-box uk-form', :url => {:controller => 'sessions', :action => 'create'}) do |f|
+  %div.uk-form-row
+    = f.text_field :username, autofocus: true,:placeholder => 'メールアドレスもしくはユーザ名', :class => 'uk-width-1-1 uk-form-large'
+  %div.uk-form-row
+    = f.password_field :password, autocomplete: "off", :placeholder => 'パスワード ', :class => 'uk-width-1-1 uk-form-large'
+
+  %div.uk-form-row
+    = check_box :user,  :remember_me, {:checked => true}
+    = label_tag 'パスワードを保存する'
+  %div.uk-form-row
+    = submit_tag "ログイン", :class => 'uk-width-1-1 uk-button uk-button-primary uk-button-large'

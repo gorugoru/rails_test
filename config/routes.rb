@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  get 'login' => 'sessions#new'
+  put 'login' => 'sessions#create'
+
+  get 'me' => 'me#index'
+
   root 'welcome#index'
   get 'test' => 'welcome#test'  
   get 'tos' => 'welcome#tos'
   get 'policy' => 'welcome#policy'
   get 'about' => 'welcome#about'
-
 
   resources :tests
 

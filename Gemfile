@@ -38,3 +38,5 @@ gem 'spring',        group: :development
 
 gem 'haml-rails'
 gem "mongoid", "~> 4.0.0"
+gem "sorcery"
+

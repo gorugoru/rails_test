@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  get 'welcome/index'
+  end
+
+  namespace :admin do
+  get 'users/index'
+  end
+
+  namespace :admin do
+  get 'users/show'
+  end
+
+  namespace :admin do
+  get 'users/edit'
+  end
+
   get 'register' => 'registrations#new'
   post 'register' => 'registrations#create'
 

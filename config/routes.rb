@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'register' => 'registrations#new'
+  post 'register' => 'registrations#create'
+
   get 'login' => 'sessions#new'
-  put 'login' => 'sessions#create'
+  post 'login' => 'sessions#create'
 
   get 'me' => 'me#index'
 

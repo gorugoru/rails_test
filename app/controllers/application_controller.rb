@@ -1,4 +1,13 @@
 class ApplicationController < ActionController::Base
+  # basic認証
+  before_action :basicauth
+  
+  def basicauth
+    authenticate_or_request_with_http_basic do |user, pass|
+      user == 'basic_test' && pass == 'hoge'
+    end
+  end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception

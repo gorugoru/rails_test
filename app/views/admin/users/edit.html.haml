@@ -1,2 +1,8 @@
 %h1 Admin::Users#edit
-%p Find me in app/views/admin/users/edit.html.haml
+%h2 
+  ユーザ編集
+
+= form_for @user, :url => {:controller => 'admin/users', :action => 'update' } do |f|
+  = f.text_field :email
+  = f.submit '更新'
+

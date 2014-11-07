@@ -1,2 +1,11 @@
 %h1 Admin::Users#show
-%p Find me in app/views/admin/users/show.html.haml
+%h2
+  ユーザ詳細
+%p
+  ユーザ名
+  = @user.username
+%p
+  メアド
+  = @user.email
+
+= link_to '編集', '/admin/users/' + @user.id.to_s + '/edit'

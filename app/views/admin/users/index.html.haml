@@ -1,2 +1,8 @@
 %h1 Admin::Users#index
-%p Find me in app/views/admin/users/index.html.haml
+%h2
+  ユーザ一覧
+%ul
+  - @users.each do |user|
+    %li
+      = user.username
+      = link_to '詳細', '/admin/users/' + user.id.to_s

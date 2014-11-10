@@ -1,2 +1,10 @@
 %h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
+- if @games.count > 0
+  %ul
+    - @games.each do |game|
+      %li
+        = game.title
+- else
+  there is no game
+
+

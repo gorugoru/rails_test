@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :games
+
   namespace :admin do
     root 'welcome#index'
     get 'users' => 'users#index'

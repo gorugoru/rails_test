@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @games = Game.order(:id.asc)
   end
 
   def tos

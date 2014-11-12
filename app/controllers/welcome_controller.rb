@@ -4,6 +4,8 @@ class WelcomeController < ApplicationController
   end
 
   def tos
+    @user = User.where(:id => 'aaaa').first
+    @user.save
   end
 
   def policy

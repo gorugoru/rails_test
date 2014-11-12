@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  rescue_from NoMethodError, with: :rescue404
+  rescue_from Exception, with: :rescue500
+  rescue_from ActionController::RoutingError , with: :rescue404
+
   # basic認証
   before_action :basicauth
   
@@ -10,6 +14,16 @@ class ApplicationController < ActionController::Base
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  private
+  def rescue404(e)
+    @exception = e
+    render template: 'errors/not_found', status: 404
+  end
+
+  def rescue500(e)
+    render 'errors/internal_server_error', status: 500
+  end
+ 
   protect_from_forgery with: :exception
   def current_user
 
